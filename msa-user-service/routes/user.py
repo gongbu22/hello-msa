@@ -1,17 +1,12 @@
-from email.policy import default
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
 
-from fastapi import APIRouter
-from pydantic import BaseModel
+from schema.user import User, UserBase
+from service.database import get_db
 
-
-class User(BaseModel):
-    userid: str
-    passwd: str
-    name: str
-    email: str
 router = APIRouter()
 
-@router.post('/user')
-async def new_user(user: User):
+@router.post('/user', response_model=User)
+async def new_user(user: UserBase, db:Session=Depends(get_db)):
     print(user)
     return {'msg': 'ok'}
