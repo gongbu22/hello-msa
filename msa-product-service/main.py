@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from routes import product
+from service.database import create_tables
+
 app = FastAPI()
 
 # CORS 설정
@@ -20,4 +22,5 @@ app.add_middleware(
 app.include_router(product.router)
 
 if __name__ == '__main__':
+    create_tables()
     uvicorn.run('main:app', port=8050, reload=True)
