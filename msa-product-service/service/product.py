@@ -12,3 +12,8 @@ def register(db:Session, product:ProductBase):
     print(product)
 
     return product
+
+# 상품 목록 조회
+def productlist(db: Session):
+    return db.query(Product.pno, Product.name, Product.price, Product.regdate)\
+        .order_by(Product.pno.desc()).all()
