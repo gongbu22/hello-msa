@@ -9,6 +9,7 @@ from schema.user import UserBase
 # 기본 회원정보 + 번호, 가입일
 def register(db: Session, user: UserBase):
     # 올바르게 넘어왔는지 확인 - 유효성 체크도 같이 함
+    # json데이터를 pydantic모델로 변환하는 과정 **user
     user = User(**user.model_dump())  # 데이터베이스에 넣어야해서 model의 User 가져옴
     db.add(user)
     db.commit()
