@@ -1,3 +1,5 @@
+from typing import Optional
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
@@ -24,7 +26,7 @@ async def list_users(db:Session=Depends(get_db)):
     # return [UserList.from_orm(u) for u in users]
     return [UserList.model_validate(u) for u in users]
 
-@router.get('/user/{mno}', response_model=User)
+@router.get('/user/{mno}', response_model=Optional[User])
 async def user_one(mno: int, db:Session=Depends(get_db)):
 
     user = userone(db, mno)
