@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+/* 404 not found */
+router.get('/notfound', function(req, res, next) {
+  res.sendFile(__dirname + '/views/notfound.html');
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.sendFile(__dirname + '/views/index.html');
@@ -34,6 +39,12 @@ router.get('/product', function(req, res, next) {
 router.get('/products', function(req, res, next) {
   // 파일을 보여주기위해 sendFile 사용
   res.sendFile(__dirname + '/views/products.html');
+});
+
+/* product one view */
+router.get('/product/:pno', function(req, res, next) {
+  // 파일을 보여주기위해 sendFile 사용
+  res.sendFile(__dirname + '/views/productone.html');
 });
 
 module.exports = router;

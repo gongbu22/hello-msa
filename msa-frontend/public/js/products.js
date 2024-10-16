@@ -30,7 +30,7 @@ const displayProdList = (products) => {
     for (const product of products) {
         html += `<li>
             상품 번호: ${product.pno},
-            상품명: ${product.name},
+            상품명: <a href="/product/${product.pno}">${product.name}</a>,
             상품가격: ${product.price},
             상품 등록일: ${product.regdate}
         </li>`;
