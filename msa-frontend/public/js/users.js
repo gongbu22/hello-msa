@@ -31,7 +31,7 @@ const displayUserList = (users) => {
     for (const user of users) {
         html += `<li>
             회원 번호: ${user.mno},
-            회원 아이디: ${user.userid},
+            회원 아이디: <a href="/user/${user.mno}">${user.userid}</a>,
             회원 이름: ${user.name},
             회원 가입일: ${user.regdate}
          </li>`;

@@ -18,6 +18,12 @@ router.get('/users', function(req, res, next) {
   res.sendFile(__dirname + '/views/users.html');
 });
 
+/* user one view */
+router.get('/user/:mno', function(req, res, next) {
+  // 파일을 보여주기위해 sendFile 사용
+  res.sendFile(__dirname + '/views/userone.html');
+});
+
 /* product registration */
 router.get('/product', function(req, res, next) {
   // 파일을 보여주기위해 sendFile 사용
