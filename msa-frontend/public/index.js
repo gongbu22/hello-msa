@@ -24,4 +24,10 @@ router.get('/product', function(req, res, next) {
   res.sendFile(__dirname + '/views/product.html');
 });
 
+/* product list */
+router.get('/products', function(req, res, next) {
+  // 파일을 보여주기위해 sendFile 사용
+  res.sendFile(__dirname + '/views/products.html');
+});
+
 module.exports = router;
