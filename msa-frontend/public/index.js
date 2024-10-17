@@ -29,6 +29,11 @@ router.get('/user/:mno', function(req, res, next) {
   res.sendFile(__dirname + '/views/userone.html');
 });
 
+/* user login1 */
+router.get('/loginuser', function(req, res, next) {
+  res.sendFile(__dirname + '/views/userlogin.html');
+});
+
 /* product registration */
 router.get('/product', function(req, res, next) {
   // 파일을 보여주기위해 sendFile 사용
