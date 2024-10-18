@@ -32,10 +32,28 @@ const displayProdList = (products) => {
             상품 번호: ${product.pno},
             상품명: <a href="/product/${product.pno}">${product.name}</a>,
             상품가격: ${product.price},
-            상품 등록일: ${product.regdate}
+            상품 등록일: ${product.regdate},
+            [<a href="javascript:pmodify('${product.pno}')">수정</a>],
+            [<a href="javascript:premove('${product.pno}')">삭제</a>]
         </li>`;
     }
     html += '</ul>';
 
     productlist.innerHTML = html;
+}
+
+const pmodify = (pno) => {
+    alert('수정되었습니다!');
+}
+
+const premove = async (pno) => {
+    if (!confirm('정말로 삭제하시겠습니까?')) return;
+    let url = `http://127.0.0.1:8050/product/${pno}`
+    const res = await fetch(url, { method: 'delete' });
+    if (res.ok) {
+        console.log(res);
+        // 만약 서버 안에 리소스를 건들 때는 res.redirect 등 res 어쩌구로 사용
+        // 클라이언트에서 리소스 건들 때는 location.href로 이동
+        location.href = '/products';  // 삭제 후 다시 목록 조회로 돌아감
+    }
 }
