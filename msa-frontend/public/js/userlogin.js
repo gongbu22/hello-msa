@@ -1,5 +1,6 @@
 const loginbtn = document.querySelector('#loginbtn');
 const loginfrm = document.loginfrm;
+const naver = document.querySelector('#naver');
 
 loginbtn.addEventListener('click', () => {
     const formData = new FormData(loginfrm);
@@ -38,3 +39,20 @@ loginbtn.addEventListener('click', () => {
         });
 
 });
+
+// 네이버 로그인 버튼 표시
+// 즉시 실행 함수 : 일반적인 함수 실행은 함수 정의 후 호출시 이루어 짐
+// 하지만, 즉시 실행 함수는 함수 정의 후 호출 없이 바로 함수를 실행하게 함
+// (함수명() { 함수몸체 })(), (() => { 함수몸체 })()
+( () => {
+    // naver.innerHTML = "<p>Hello, World!!</p>";
+
+    fetch('http://127.0.0.1:3000/api/naver2')
+        .then(res => {
+        if (res.status === 200) {
+            return res.text();  // 밑에 data
+        }
+    }).then(data => {
+        naver.innerHTML = data;
+    })
+})();
