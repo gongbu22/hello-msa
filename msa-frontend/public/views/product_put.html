@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 수정</title>
+</head>
+<body>
+<h1>상품 수정</h1>
+<form name="productfrm">
+    <div>상품명 : <input type="text" name="name" id="name"></div><p></p>
+    <div>설명 : <input type="text" name="desc" id="desc" style="width: 200px; height: 100px;"></div><p></p>
+    <div>가격 : <input type="number" name="price" id="price"></div>
+    <div>제조사 : <input type="text" name="maker" id="maker"></div>
+    <div>등록일 : <input type="date" name="regdate" id="regdate"></div>
+    <div><button type="button" id="modifybtn">상품 수정</button></div>
+    <input type="hidden" name="pno" id="pno">
+</form>
+<hr>
+
+<script src="/js/product_put.js"></script>
+
+</body>
+</html>

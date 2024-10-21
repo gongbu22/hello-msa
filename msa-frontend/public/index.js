@@ -58,6 +58,14 @@ router.get('/product/:pno', function(req, res, next) {
   res.sendFile(__dirname + '/views/productone.html');
 });
 
+/* product update */
+router.get('/product_put/:pno', function(req, res, next) {
+  // 파일을 보여주기위해 sendFile 사용
+  res.sendFile(__dirname + '/views/product_put.html');
+});
+
+// ---
+
 /* naver api login */
 router.get('/login/naver', function(req, res, next) {
   // 파일을 보여주기위해 sendFile 사용
