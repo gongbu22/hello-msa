@@ -11,7 +11,7 @@ regbtn.addEventListener('click', async() => {
     });
     console.log(jsondata);
 
-    const res = await fetch('http://127.0.0.1:8050/product',
+    const res = await fetch(`http://${sessionStorage.getItem('productsrvURL')}:8050/product`,
         {
             method: 'POST',
             headers: {

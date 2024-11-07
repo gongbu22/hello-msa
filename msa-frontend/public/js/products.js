@@ -10,7 +10,7 @@ window.addEventListener('load', async() => {
 })
 
 const getProdList = async () => {
-    let url = 'http://127.0.0.1:8050/products'
+    let url = `http://${sessionStorage.getItem('productsrvURL')}:8050/products`
     const res = await fetch(url);
     if (res.ok) {
         const data = await res.json();
@@ -49,7 +49,7 @@ const pmodify = (pno) => {
 
 const premove = async (pno) => {
     if (!confirm('정말로 삭제하시겠습니까?')) return;
-    let url = `http://127.0.0.1:8050/product/${pno}`
+    let url = `http://${sessionStorage.getItem('productsrvURL')}:8050/product/${pno}`
     const res = await fetch(url, { method: 'delete' });
     if (res.ok) {
         console.log(res);

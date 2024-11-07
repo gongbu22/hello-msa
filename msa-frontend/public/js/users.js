@@ -12,7 +12,7 @@ window.addEventListener('load', async () => {
 // 회원 데이터 가져오기
 const getUserList = async () => {
     // 데이터를 가져오기만 하는거라서 그냥 url만 땡겨오면 된다.
-    let url = 'http://127.0.0.1:8000/users'
+    let url = `http://${sessionStorage.getItem('usersrvURL')}/users`
     const res = await fetch(url);
     if (res.ok) {
         const data = await res.json();
