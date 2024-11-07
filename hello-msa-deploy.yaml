@@ -38,7 +38,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      apkp: msa-usersrv
+      app: msa-usersrv
   template:
     metadata:
       name: msa-usersrv
